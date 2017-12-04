@@ -27,14 +27,14 @@ function elementor_add_view_load() {
 	load_plugin_textdomain( 'elementor-add-view' );
 
 	// Notice if the Elementor is not active
-    if ( ! did_action( 'elementor/loaded' ) ) {
+	if ( ! did_action( 'elementor/loaded' ) ) {
 		add_action( 'admin_notices', 'elementor_add_view_fail_load' );
 		return;
 	}
 
 	// Check version required
-	$elementor_version_required = '1.0.0';
-	if ( ! version_compare( ELEMENTOR_VERSION, $elementor_version_required, '>=' ) ) {
+	$elementor_pro_version_required = '1.7.2';
+	if ( ! version_compare( ELEMENTOR_PRO_VERSION, $elementor_pro_version_required, '>=' ) ) {
 		add_action( 'admin_notices', 'elementor_add_view_fail_load_out_of_date' );
 		return;
 	}
